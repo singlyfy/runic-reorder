@@ -9,24 +9,26 @@ Powered by Svelte 5's Runes, a performant, flexible and simple drag-and-drop api
 `bun add -D runic-reorder`
 
 ```html
+
+
 <script lang='ts'>
-    import reorder, { type ItemState } from 'runic-reorder'
+    import reorder, {type ItemState} from "runic-reorder";
 
     let array = $state([
-        'a',
-        'b',
-        'c'
-    ])
+        "a",
+        "b",
+        "c"
+    ]);
     type Item = typeof array[number]
 
-    const area = reorder(content) // Reference the snippet
+    const area = reorder(content); // Reference the snippet
 </script>
 
 {#snippet content(item: Item, state: ItemState)}
     <div use:state.handle>
         {item}
     </div>
-{/if}
+{/snippet}
 
 <div use:area>
     {@render area(array)}
